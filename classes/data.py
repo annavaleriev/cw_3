@@ -24,20 +24,37 @@ class Data:
 # print(data.load_data())
 
 class DataProcessor(Data):
-    def get_executed_operations(self, list_operations):
+    def get_executed_operations(self, list_operations) -> list:
+        """
+        достает операции "EXECUTED" и добавляет их в список
+        :return: список операций выполненных со статусом "EXECUTED"
+        """
         # executed_list = []
         # for operation in list_operation:
         #     if operation["state"] == "EXECUTED":
         #         executed_list.append(operation)
         return [operation for operation in list_operations if operation.get("state") == "EXECUTED"]
 
-    def sort_operations(self, executed_operations):
+    def sort_operations(self, executed_operations) -> list:
+        """
+         сортирует список операций по дате
+        :return: список операций "EXECUTED" отсортированный с конца
+        """
         return sorted(executed_operations, key=lambda operation: operation["date"], reverse=True)
 
-    def get_five_operations(self, sorted_operations):
+    def get_five_operations(self, sorted_operations) -> list: # или тут словарь?
+        """
+        получает последние 5 операций
+        :return: список с последними 5 операциями в статусе "EXECUTED"
+        """
         return sorted_operations[:5]
 
     def get_operation_objects(self, five_operations):
+        """
+        берёт 5 операций
+        :param five_operations:
+        :return: возаращает 5 экземпляров класса
+        """
         list_objects = []
         for operation in five_operations:
             operation_dict = {
@@ -51,6 +68,10 @@ class DataProcessor(Data):
 
             }
 
+        operation_1 = Operation(**operation_dict)
+
+
+
 
 
 
@@ -59,12 +80,13 @@ class DataProcessor(Data):
         executed_operations = self.get_executed_operations(list_operations)
         sorted_operations = self.sort_operations(executed_operations)
         five_operations = self.get_five_operations(sorted_operations)
+        pass
 
 
 
 
 
 
-data_proc = DataProcessor(OPERATION_JSON)
-print(data_proc.get_executed_operations())
+# data_proc = DataProcessor(OPERATION_JSON)
+# print(data_proc.get_executed_operations())
 
