@@ -67,12 +67,10 @@ class DataProcessor(Data):
                 "to": operation["to"]
 
             }
-
-        operation_1 = Operation(**operation_dict)
-
-
-
-
+            operation_object = Operation(operation_dict.keys())
+            if operation_object.state == "EXECUTED":
+                list_objects.append(operation_object)
+        return list_objects
 
 
     def get_operations_list(self):
@@ -80,13 +78,12 @@ class DataProcessor(Data):
         executed_operations = self.get_executed_operations(list_operations)
         sorted_operations = self.sort_operations(executed_operations)
         five_operations = self.get_five_operations(sorted_operations)
+        all_operations = self.get_operation_objects(five_operations)
         pass
 
 
 
 
-
-
 # data_proc = DataProcessor(OPERATION_JSON)
-# print(data_proc.get_executed_operations())
+# print(data_proc.get_operation_objects())
 
