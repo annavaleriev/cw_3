@@ -1,7 +1,6 @@
 from datetime import datetime
 
 
-
 class Operation:
     def __init__(self, pk: int, date: str, state: str, operation_amount: dict, description: str, from_: str, to: str):
         """
@@ -46,7 +45,7 @@ class Operation:
             card_split.append(card_number)
             return " ".join(card_split)
 
-    def print_operation(self) -> str:
+    def __str__(self) -> str:
         """
         выводит сообщение по операции
         :return: строку с данными по операции
@@ -54,61 +53,3 @@ class Operation:
         return (f'{self.date} {self.description}\n'
                 f'{self.from_} -> {self.to}\n '
                 f'{self.operation_amount["amount"]} {self.operation_amount["currency"]["name"]}')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    # def last_five_operations(self, date):
-    #
-    #     for
-    #
-
-
-
-# oper = Operation (12345,'2019-08-26T10:50:58.294041', "EXECUTED", {
-#       "amount": "123.58",
-#       "currency": {
-#         "name": "USD",
-#         "code": "RUB"
-#       }}, "Перевод организации",'Maestro 1596837868705199', 'Счет 35383033474447895560')
-# # print(oper.date)
-# # print(oper.from_)
-# # print(oper.to)
-#
-#
-# # print(oper.operation_amount)
-# print(oper.print_operation())
-
-# print(oper.last_five_operations())
-
-
-#
-# class DataConnector:
-#     def __init__(self, data):
-#         self.data = data
-#         correct_date = datetime.fromisoformat(self.data['date'])
-#         date_ = correct_date.strftime('%d.%m.%Y')
-#         return date_
-
-
-
-
-
-
-    # data = Data(OPERATION_JSON)
-    # вот этот надо передать туда экземпляер класса
-
-
-
-

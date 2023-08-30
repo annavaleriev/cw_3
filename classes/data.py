@@ -1,7 +1,6 @@
 import json
 
 from classes.operation import Operation
-from settings import OPERATION_JSON
 
 
 class Data:
@@ -17,11 +16,9 @@ class Data:
         считывает файл по указанному пути
         :return: список словарей
         """
-        with open(self.path) as data_file:
+        with open(self.path, encoding="utf-8") as data_file:
             return json.load(data_file)
 
-# data = Data(OPERATION_JSON)
-# print(data.load_data())
 
 class DataProcessor(Data):
     def get_executed_operations(self, list_operations) -> list:
@@ -29,10 +26,6 @@ class DataProcessor(Data):
         достает операции "EXECUTED" и добавляет их в список
         :return: список операций выполненных со статусом "EXECUTED"
         """
-        # executed_list = []
-        # for operation in list_operation:
-        #     if operation["state"] == "EXECUTED":
-        #         executed_list.append(operation)
         return [operation for operation in list_operations if operation.get("state") == "EXECUTED"]
 
     def sort_operations(self, executed_operations) -> list:
@@ -63,15 +56,12 @@ class DataProcessor(Data):
                 "state": operation["state"],
                 "operation_amount": operation["operationAmount"],
                 "description": operation["description"],
-                "from_": operation["from"],
+                "from_": operation.get("from", ""),
                 "to": operation["to"]
 
             }
-            operation_object = Operation(operation_dict.keys())
-            if operation_object.state == "EXECUTED":
-                list_objects.append(operation_object)
+            list_objects.append(Operation(**operation_dict))
         return list_objects
-
 
     def get_operations_list(self):
         list_operations = self.load_data()
@@ -79,11 +69,4 @@ class DataProcessor(Data):
         sorted_operations = self.sort_operations(executed_operations)
         five_operations = self.get_five_operations(sorted_operations)
         all_operations = self.get_operation_objects(five_operations)
-        pass
-
-
-
-
-# data_proc = DataProcessor(OPERATION_JSON)
-# print(data_proc.get_operation_objects())
-
+        return all_operations
