@@ -21,28 +21,28 @@ class Data:
 
 
 class DataProcessor(Data):
-    def get_executed_operations(self, list_operations) -> list:
+    def get_executed_operations(self, list_operations) -> list[dict]:
         """
         достает операции "EXECUTED" и добавляет их в список
         :return: список операций выполненных со статусом "EXECUTED"
         """
         return [operation for operation in list_operations if operation.get("state") == "EXECUTED"]
 
-    def sort_operations(self, executed_operations) -> list:
+    def sort_operations(self, executed_operations: list[dict]) -> list[dict]:
         """
          сортирует список операций по дате
         :return: список операций "EXECUTED" отсортированный с конца
         """
         return sorted(executed_operations, key=lambda operation: operation["date"], reverse=True)
 
-    def get_five_operations(self, sorted_operations) -> list: # или тут словарь?
+    def get_five_operations(self, sorted_operations) -> list[dict]:
         """
         получает последние 5 операций
         :return: список с последними 5 операциями в статусе "EXECUTED"
         """
         return sorted_operations[:5]
 
-    def get_operation_objects(self, five_operations):
+    def get_operation_objects(self, five_operations: list[dict]):
         """
         берёт 5 операций
         :param five_operations:
