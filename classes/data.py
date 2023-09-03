@@ -21,7 +21,7 @@ class Data:
 
 
 class DataProcessor(Data):
-    def get_executed_operations(self, list_operations) -> list[dict]:
+    def get_executed_operations(self, list_operations: list[dict]) -> list[dict]:
         """
         достает операции "EXECUTED" и добавляет их в список
         :return: список операций выполненных со статусом "EXECUTED"
@@ -35,14 +35,14 @@ class DataProcessor(Data):
         """
         return sorted(executed_operations, key=lambda operation: operation["date"], reverse=True)
 
-    def get_five_operations(self, sorted_operations) -> list[dict]:
+    def get_five_operations(self, sorted_operations: list[dict]) -> list[dict]:
         """
         получает последние 5 операций
         :return: список с последними 5 операциями в статусе "EXECUTED"
         """
         return sorted_operations[:5]
 
-    def get_operation_objects(self, five_operations: list[dict]):
+    def get_operation_objects(self, five_operations: list[dict]) -> list:
         """
         берёт 5 операций
         :param five_operations:
@@ -64,9 +64,9 @@ class DataProcessor(Data):
         return list_objects
 
     def get_operations_list(self):
-        list_operations = self.load_data()
-        executed_operations = self.get_executed_operations(list_operations)
-        sorted_operations = self.sort_operations(executed_operations)
-        five_operations = self.get_five_operations(sorted_operations)
-        all_operations = self.get_operation_objects(five_operations)
+        list_operations: list[dict] = self.load_data()
+        executed_operations: list[dict] = self.get_executed_operations(list_operations)
+        sorted_operations: list[dict] = self.sort_operations(executed_operations)
+        five_operations: list[dict] = self.get_five_operations(sorted_operations)
+        all_operations: list = self.get_operation_objects(five_operations)
         return all_operations
