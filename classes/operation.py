@@ -21,7 +21,7 @@ class Operation:
         self.from_ = self.hide_card_number(from_) if from_ else ""
         self.to = self.hide_card_number(to)
 
-    def convert_date(self, date: str):
+    def convert_date(self, date: str) -> str:
         """
         форматирование даты
         :param date:
@@ -30,7 +30,7 @@ class Operation:
         correct_date = datetime.fromisoformat(date) #какой тут тип и что возвращает
         return correct_date.strftime('%d.%m.%Y')
 
-    def hide_card_number(self, card: str):  # что возвращает забыла
+    def hide_card_number(self, card: str) -> str:
         """
         счёт или номер карты маскирует перед выводом
         :param card:
