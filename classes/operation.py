@@ -14,12 +14,12 @@ class Operation:
         :param to:
         """
         self.pk = pk
-        self.date = self.convert_date(date)
+        self.date: str = self.convert_date(date)
         self.state = state
         self.operation_amount = operation_amount
         self.description = description
-        self.from_ = self.hide_card_number(from_) if from_ else ""
-        self.to = self.hide_card_number(to)
+        self.from_: str = self.hide_card_number(from_) if from_ else ""
+        self.to: str = self.hide_card_number(to)
 
     def convert_date(self, date: str) -> str:
         """
@@ -27,7 +27,7 @@ class Operation:
         :param date:
         :return:
         """
-        correct_date = datetime.fromisoformat(date) #какой тут тип и что возвращает
+        correct_date = datetime.fromisoformat(date)
         return correct_date.strftime('%d.%m.%Y')
 
     def hide_card_number(self, card: str) -> str:
@@ -52,4 +52,4 @@ class Operation:
         """
         return (f'{self.date} {self.description}\n'
                 f'{self.from_} -> {self.to}\n '
-                f'{self.operation_amount["amount"]} {self.operation_amount["currency"]["name"]}')
+                f'{self.operation_amount["amount"]} {self.operation_amount["currency"]["name"]}\n')

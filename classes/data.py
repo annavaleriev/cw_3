@@ -42,7 +42,7 @@ class DataProcessor(Data):
         """
         return sorted_operations[:5]
 
-    def get_operation_objects(self, five_operations: list[dict]) -> list:
+    def get_operation_objects(self, five_operations: list[dict]) -> list[Operation]:
         """
         берёт 5 операций
         :param five_operations:
@@ -63,10 +63,10 @@ class DataProcessor(Data):
             list_objects.append(Operation(**operation_dict))
         return list_objects
 
-    def get_operations_list(self):
+    def get_operations_list(self) -> list[Operation]:
         list_operations: list[dict] = self.load_data()
         executed_operations: list[dict] = self.get_executed_operations(list_operations)
         sorted_operations: list[dict] = self.sort_operations(executed_operations)
         five_operations: list[dict] = self.get_five_operations(sorted_operations)
-        all_operations: list = self.get_operation_objects(five_operations)
+        all_operations: list[Operation] = self.get_operation_objects(five_operations)
         return all_operations
