@@ -18,3 +18,4 @@ def test_get_five_operations(sorted_operations, last_five__operations):
     assert DataProcessor.get_five_operations(test_get_executed_operations, sorted_operations) == last_five__operations
 
 
+

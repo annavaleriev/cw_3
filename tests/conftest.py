@@ -1,4 +1,5 @@
 import json
+from settings import OPERATION_JSON_TEST
 
 import pytest
 
@@ -26,7 +27,7 @@ def operation():
 
 @pytest.fixture
 def test_json():
-    with open('test_operations.json') as file:
+    with open(OPERATION_JSON_TEST) as file:
         test_json_load = json.load(file)
         return test_json_load
 
