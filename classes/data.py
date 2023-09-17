@@ -33,7 +33,7 @@ class DataProcessor(Data):
          сортирует список операций по дате
         :return: список операций "EXECUTED" отсортированный с конца
         """
-        return sorted(executed_operations, key=lambda operation: operation["date"], reverse=True)
+        return sorted(executed_operations, key=lambda operation: operation.get("date"), reverse=True)
 
     def get_five_operations(self, sorted_operations: list[dict]) -> list[dict]:
         """
