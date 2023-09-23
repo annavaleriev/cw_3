@@ -70,10 +70,14 @@ def test_get_operation_objects(data_processor):
 
 
 def test_get_operations_list(data_processor):
-    data_processor.path = OPERATION_JSON_TEST
-    operations_list = data_processor.get_operations_list()
-    for op in operations_list:
-        print(op)
+    data_processor.path = OPERATION_JSON_TEST #'это пусть к тестовомку файлу
+    list_operations = data_processor.load_data(OPERATION_JSON_TEST)
+    # дальше нужно протестировать list_operations: list[dict] = self.load_data()
+    assert list_operations == list[dict]
+    list_operations =
+    # operations_list = data_processor.get_operations_list()
+    # for op in operations_list:
+    #     print(op)
 
 
 

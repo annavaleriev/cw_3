@@ -31,7 +31,7 @@
   },
   {
     "id": 556488059,
-    "state": "EXECUTED1",
+    "state": "EXECUTED",
     "date": "2019-05-17T01:50:00.166954",
     "operationAmount": {
       "amount": "74604.56",
@@ -46,7 +46,7 @@
   },
   {
     "id": 179194306,
-    "state": "EXECUTED1",
+    "state": "EXECUTED",
     "date": "2019-05-19T12:51:49.023880",
     "operationAmount": {
       "amount": "6381.58",
@@ -61,7 +61,7 @@
   },
   {
     "id": 667307132,
-    "state": "EXECUTED1",
+    "state": "EXECUTED",
     "date": "2019-07-13T18:51:29.313309",
     "operationAmount": {
       "amount": "97853.86",
@@ -74,9 +74,9 @@
     "from": "Maestro 1308795367077170",
     "to": "Счет 96527012349577388612"
   },
-    {
+  {
     "id": 716496732,
-    "state": "EXECUTED1",
+    "state": "EXECUTED",
     "date": "2018-04-04T17:33:34.701093",
     "operationAmount": {
       "amount": "40701.91",
@@ -88,5 +88,35 @@
     "description": "Перевод организации",
     "from": "Visa Gold 5999414228426353",
     "to": "Счет 72731966109147704472"
+  },
+  {
+    "id": 615064591,
+    "state": "CANCELED",
+    "date": "2018-10-14T08:21:33.419441",
+    "operationAmount": {
+      "amount": "77751.04",
+      "currency": {
+        "name": "руб.",
+        "code": "RUB"
+      }
+    },
+    "description": "Перевод с карты на счет",
+    "from": "Maestro 3928549031574026",
+    "to": "Счет 84163357546688983493"
+  },
+  {
+    "id": 970724427,
+    "state": "CANCELED",
+    "date": "2019-01-15T17:58:27.064377",
+    "operationAmount": {
+      "amount": "90688.44",
+      "currency": {
+        "name": "USD",
+        "code": "USD"
+      }
+    },
+    "description": "Перевод организации",
+    "from": "Visa Platinum 2241653116508487",
+    "to": "Счет 26494285169417058486"
   }
 ]
