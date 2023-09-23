@@ -1,5 +1,6 @@
 from classes.data import DataProcessor
 from classes.operation import Operation
+from settings import OPERATION_JSON_TEST
 
 
 def test_get_executed_operations(data_processor):
@@ -66,3 +67,13 @@ def test_get_operation_objects(data_processor):
     assert isinstance(operation_objects[0], Operation) is True
     assert operation_objects[0].pk == 863064926
     assert len(operation_objects) == 1
+
+
+def test_get_operations_list(data_processor):
+    data_processor.path = OPERATION_JSON_TEST
+    operations_list = data_processor.get_operations_list()
+    for op in operations_list:
+        print(op)
+
+
+

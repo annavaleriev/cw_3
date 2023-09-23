@@ -31,7 +31,7 @@
   },
   {
     "id": 556488059,
-    "state": "EXECUTED",
+    "state": "EXECUTED1",
     "date": "2019-05-17T01:50:00.166954",
     "operationAmount": {
       "amount": "74604.56",
@@ -46,7 +46,7 @@
   },
   {
     "id": 179194306,
-    "state": "EXECUTED",
+    "state": "EXECUTED1",
     "date": "2019-05-19T12:51:49.023880",
     "operationAmount": {
       "amount": "6381.58",
@@ -61,7 +61,7 @@
   },
   {
     "id": 667307132,
-    "state": "EXECUTED",
+    "state": "EXECUTED1",
     "date": "2019-07-13T18:51:29.313309",
     "operationAmount": {
       "amount": "97853.86",
@@ -76,7 +76,7 @@
   },
     {
     "id": 716496732,
-    "state": "EXECUTED",
+    "state": "EXECUTED1",
     "date": "2018-04-04T17:33:34.701093",
     "operationAmount": {
       "amount": "40701.91",
