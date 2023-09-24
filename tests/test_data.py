@@ -72,9 +72,11 @@ def test_get_operation_objects(data_processor):
 def test_get_operations_list(data_processor):
     data_processor.path = OPERATION_JSON_TEST  # 'это пусть к тестовомку файлу
     operations_list = data_processor.get_operations_list()
-    assert isinstance(operations_list, list)
+    assert isinstance(operations_list, list) is True
     assert len(operations_list) == 5
-    assert operations_list[0].operation_amount["amount"] == '97853.86'
-    assert operations_list[1].date == '19.05.2019'
-    assert operations_list[2].from_ == 'МИР 8021 88** **** 6544'
-    assert operations_list[3].to == 'Счет ** 4188'
+    assert operations_list[0].date == "13.07.2019"
+    assert operations_list[0].description == "Перевод с карты на счет"
+    assert operations_list[0].operation_amount["amount"] == "97853.86"
+    assert operations_list[0].operation_amount["currency"]["name"] == "руб."
+    assert operations_list[0].from_ == "Maestro 1308 79** **** 7170"
+    assert operations_list[0].to == "Счет ** 8612"
