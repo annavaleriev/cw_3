@@ -70,14 +70,11 @@ def test_get_operation_objects(data_processor):
 
 
 def test_get_operations_list(data_processor):
-    data_processor.path = OPERATION_JSON_TEST #'это пусть к тестовомку файлу
-    list_operations = data_processor.load_data(OPERATION_JSON_TEST)
-    # дальше нужно протестировать list_operations: list[dict] = self.load_data()
-    assert list_operations == list[dict]
-    list_operations =
-    # operations_list = data_processor.get_operations_list()
-    # for op in operations_list:
-    #     print(op)
-
-
-
+    data_processor.path = OPERATION_JSON_TEST  # 'это пусть к тестовомку файлу
+    operations_list = data_processor.get_operations_list()
+    assert isinstance(operations_list, list)
+    assert len(operations_list) == 5
+    assert operations_list[0].operation_amount["amount"] == '97853.86'
+    assert operations_list[1].date == '19.05.2019'
+    assert operations_list[2].from_ == 'МИР 8021 88** **** 6544'
+    assert operations_list[3].to == 'Счет ** 4188'
