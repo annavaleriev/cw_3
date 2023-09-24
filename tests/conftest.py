@@ -25,13 +25,6 @@ def operation():
     return operation
 
 
-# @pytest.fixture
-# def test_json():
-#     with open(OPERATION_JSON_TEST) as file:
-#         test_json_load = json.load(file)
-#         return test_json_load
-
 @pytest.fixture
 def data_processor():
     return DataProcessor('')
-
