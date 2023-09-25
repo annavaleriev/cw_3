@@ -1,4 +1,3 @@
-from classes.data import DataProcessor
 from classes.operation import Operation
 from settings import OPERATION_JSON_TEST
 
